@@ -7,7 +7,7 @@
             Header
         </div>
         <div class="card-body">
-            <h5 class="card-title">Title</h5>
+            <h5 class="card-title">welcome</h5>
             <p class="card-text">Content</p>
         </div>
     </div>
