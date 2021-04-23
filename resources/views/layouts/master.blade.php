@@ -23,7 +23,7 @@
 
     <style>
         .bg-aypao {
-            background-color: #ff80ff;
+            background-color: #b700b7;
             border-color: #ff0080;
 
         }
@@ -33,7 +33,7 @@
         }
 
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-aypao">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-aypao text-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">AYPAO-SERVICE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

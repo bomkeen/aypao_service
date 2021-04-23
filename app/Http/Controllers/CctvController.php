@@ -12,8 +12,7 @@ class CctvController extends Controller
     }
     public function add()
     {
-        $province_list = DB::table('provinces')->get();
-        return view('cctv.add')->with('province_list', $province_list);
-    }
 
+        return view('cctv.add');
+    }
 }
