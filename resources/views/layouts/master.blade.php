@@ -28,6 +28,18 @@
 
         }
 
+        .bg-aypao-header {
+            background-color: #ff53ff;
+            /* border-color: #ff0080; */
+
+        }
+
+        .bg-aypao-header-sub {
+            background-color: #ffbfff;
+            /* border-color: #ff0080; */
+
+        }
+
         .nav-link {
             color: white;
         }
