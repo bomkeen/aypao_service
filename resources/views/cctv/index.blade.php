@@ -1,8 +1,7 @@
-{{-- @extends('layouts.master')
+@extends('layouts.master')
 @section('title', 'CCTV')
-@section('content') --}}
+@section('content')
 
-<x-app-layout>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -47,5 +46,5 @@
         </div>
     </div>
 
-</x-app-layout>
-{{-- @endsection --}}
+
+@endsection

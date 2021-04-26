@@ -14,7 +14,9 @@
             <div class="card-header bg-aypao-header text-white">
                 บันทึกข้อมูล
             </div>
-            <form class="form" action="##" method="post" id="registrationForm">
+            <form action="{{ route('cctv_insert') }}" method="post">
+                @csrf
+
                 <div class="card-body">
                     <div class="row">
                         {{-- col บัตร --}}
@@ -42,15 +44,15 @@
                                                     <input type="text" class="form-control" name="cid" id="cid"
                                                         placeholder="cid">
                                                 </div>
-                                                <div class="col-1">
+                                                <div class="col-2">
                                                     <label for="age">อายุ</label>
                                                     <input type="text" class="form-control" name="age" id="age">
                                                 </div>
-                                                <div class="col-2">
+                                                <div class="col-3">
                                                     <label for="birthdate">วันเกิด</label>
                                                     <input type="text" class="form-control" name="birthdate" id="birthdate">
                                                 </div>
-                                                <div class="col-2">
+                                                <div class="col-3">
                                                     <label for="mobile">เบอร์ติดต่อ</label>
                                                     <input type="text" class="form-control" name="mobile" id="mobile">
                                                 </div>
@@ -97,6 +99,11 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row ">
+                                        @error('service_type')
+                                            <div class="my-2">
+                                                <span class="text-danger">{{ $message }}</span>
+                                            </div>
+                                        @enderror
                                         <div class="col-12">
                                             <div class="p-1 border bg-light">
                                                 <p><ins>วัตถุประสงค์ในการขอใช้บริการ</ins></p>
@@ -124,21 +131,24 @@
                                                     <div class="container ms-5">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="service_suptype_id" id="service_suptype_id1">
+                                                                name="service_suptype_id[]" id="service_suptype_id1"
+                                                                value="1">
                                                             <label class="form-check-label" for="service_suptype_id1">
                                                                 ขอถ่ายวีดีโอด้วยโทรศัพย์มือถือ
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="service_suptype_id" id="service_suptype_id2">
+                                                                name="service_suptype_id[]" id="service_suptype_id2"
+                                                                value="2">
                                                             <label class="form-check-label" for="service_suptype_id2">
                                                                 อุปกรณ์จัดเก็บข้อมูลภายนอก (External Hardisk)
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="service_suptype_id" id="service_suptype_id3">
+                                                                name="service_suptype_id[]" id="service_suptype_id3"
+                                                                value="3">
                                                             <label class="form-check-label" for="service_suptype_id3">
                                                                 แผ่นดิจิทัลอเนกประสงค์ชนิดบันทึกได้ (DVD-R)
                                                             </label>
@@ -161,12 +171,15 @@
                                                         <input name="cctv_event_date" id="cctv_event_date"
                                                             class="cctv_event_date form-control" />
                                                     </div>
-                                                    <div class="col-2">
+                                                    <div class="col-3">
                                                         <label for="cctv_event_time"
                                                             class="form-label">เวลาที่เกิดเหตุ</label>
-                                                        <input id="cctv_event_time" width="150" />
+                                                        {{-- <input id="cctv_event_time" name="cctv_event_time" width="150" /> --}}
+                                                        <input class="form-control" type="text" name="cctv_event_time"
+                                                            id="cctv_event_time" placeholder="เวลาโดยประมาณ...">
+
                                                     </div>
-                                                    <div class="col-8">
+                                                    <div class="col-7">
                                                         <label for="cctv_event_area" class="form-label">บริเวณ</label>
                                                         <input type="text" class="form-control" name="cctv_event_area"
                                                             id="cctv_event_area">
@@ -183,8 +196,6 @@
                                                 </div>
 
                                             </div>
-
-
                                         </div>
 
                                     </div>
@@ -197,14 +208,14 @@
                                                     <div class="col-4">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="person_type"
-                                                                id="person_type1" value="1">
+                                                                id="person_type1" value="1" required>
                                                             <label class="form-check-label" for="person_type1">
                                                                 บุคคลทัวไป
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="person_type"
-                                                                id="person_type2" value="2">
+                                                                id="person_type2" value="2" required>
                                                             <label class="form-check-label" for="person_type2">
                                                                 เจ้าหน้าท่ี่ อบจ.อย.
                                                             </label>
@@ -214,22 +225,20 @@
                                                     {{-- //// type person out --}}
 
                                                     <div id="out_person" class="col-8 subtype">
-
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="out_person_doc" id="out_person_doc1">
+                                                                name="out_person_doc" id="out_person_doc1" value="1">
                                                             <label class="form-check-label" for="out_person_doc1">
                                                                 สำเนาบันทึกแจ้งความ/บันทึกประจำวัน
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="service_suptype_id" id="out_person_doc2">
+                                                                name="out_person_doc" id="out_person_doc2" value="2">
                                                             <label class="form-check-label" for="out_person_doc2">
                                                                 สำเนาบัตรประชาชน/หนังสือเดินทาง
                                                             </label>
                                                         </div>
-
                                                         <input class="form-control" type="text" name="out_person_etc"
                                                             id="out_person_etc" placeholder="อื่นๆ">
                                                     </div>
@@ -240,8 +249,8 @@
                                                     <div id="aypao_person" class="col-8 subtype">
 
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="aypao_person_doc" id="aypao_person_doc">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="aypao_person_doc" id="aypao_person_doc" value="1">
                                                             <label class="form-check-label" for="aypao_person_doc">
                                                                 สำเนาบันทึกแจ้งความ/บันทึกประจำวัน
                                                             </label>
@@ -270,8 +279,6 @@
                                                             </label>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="col-8">
                                                         <div class="row">
                                                             <div class="col-12">
@@ -344,9 +351,9 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
         {{-- time picker --}}
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> --}}
         {{-- end time picker --}}
 
         {{-- date picker --}}
@@ -358,7 +365,7 @@
             $(document).ready(function() {
                 $.fn.datepicker.defaults.language = 'th';
                 $('.cctv_event_date').datepicker({
-                    format: 'mm-dd-yyyy',
+                    format: 'yyyy-mm-dd',
                 });
 
             });
@@ -459,13 +466,13 @@
         {{-- /////// end from event --}}
 
         {{-- time picker --}}
-        <script>
+        {{-- <script>
             $('#cctv_event_time').timepicker({
                 mode: '24hr',
                 // uiLibrary: 'bootstrap'
             });
 
-        </script>
+        </script> --}}
         {{-- time picker --}}
 
     @endpush

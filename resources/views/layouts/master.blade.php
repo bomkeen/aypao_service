@@ -62,6 +62,9 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">CCTV</a>
                     </li> --}}
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">CCTV</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Compuser Asset</a>
                     </li>
                     <li class="nav-item">
