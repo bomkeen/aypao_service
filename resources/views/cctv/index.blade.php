@@ -29,18 +29,34 @@
                                 <th scope="col">First</th>
                                 <th scope="col">Last</th>
                                 <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
+                            @php
+                                $i = 1;
+                            @endphp
+                            @foreach ($cctv as $row)
 
+                                <tr>
+                                    <td> {{ $i }}</td>
+                                    <td>{{ $row->cus_fname }}</td>
+
+                                    <td>{{ $row->cus_lname }}</td>
+
+                                    <td>{{ $row->cctv_event_info }}</td>
+                                    <td>
+                                        <a href="{{ route('cctv_edit', ['id' => $row->id]) }}"
+                                            class="btn btn-primary">แก้ไขข้อมูล</a>
+                                    </td>
+
+                                </tr>
+
+
+                            @endforeach
                         </tbody>
                     </table>
+                    {{ $cctv->links() }}
                 </div>
             </div>
         </div>

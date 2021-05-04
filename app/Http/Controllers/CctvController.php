@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use App\Models\Cctv_service;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class CctvController extends Controller
 {
     public function index()
     {
-        return view('cctv.index');
+        $cctv = Cctv_service::all();
+        $cctv = Cctv_service::paginate(3);
+        Paginator::useBootstrap();
+        return view('cctv.index', compact('cctv'));
     }
     public function add()
     {
 
         return view('cctv.add');
+    }
+    public function edit($id)
+    {
+        $cctv = Cctv_service::find($id);
+        $service_subtype_id[] = explode(",", $cctv->service_subtype_id);
+        $out_person_doc[] = explode(",", $cctv->out_person_doc);
+        return view('cctv.edit', compact('cctv', 'service_subtype_id', 'out_person_doc'));
     }
 
     public function insert(Request $request)
@@ -26,7 +36,7 @@ class CctvController extends Controller
                 'service_type' => 'required',
             ],
             [
-                'service_type.required' => 'โปรดเลือก วัตถุประสงค์ในการขอใช้บริการ'
+                'service_type.required' => 'โปรดเลือก วัตถุประสงค์ในการขอใช้บริการ',
                 // 'department_name.required' => 'ค่าแผนกต้องไปม่เป็นค่าว่าง',
                 // 'department_name.max' => 'ห้ามป้อนเกิน 255 ตัวอักษร',
                 // 'department_name.unique' => 'ชื่อแผนกมีใช้อยู่แล้ว',
@@ -74,8 +84,16 @@ class CctvController extends Controller
         $cctv->aypao_person_etc = $request->aypao_person_etc;
 
         // end person data
-        $cctv->save();
 
+        // techno data
+        $cctv->techno_event_type = $request->techno_event_type;
+        $cctv->techno_event_cctv_num = $request->techno_event_cctv_num;
+        $cctv->techno_event_info = $request->techno_event_info;
+        $cctv->techno_event_etc = $request->techno_event_etc;
+        $cctv->techno_event_cctv_time = $request->techno_event_cctv_time;
+
+        // end techno data
+        $cctv->save();
 
         return view('cctv.index');
     }

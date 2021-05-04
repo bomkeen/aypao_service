@@ -16,11 +16,6 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-
-    {{-- ///// --}}
-    @stack('script')
-    {{-- ////// --}}
-
     <style>
         .bg-aypao {
             background-color: #b700b7;
@@ -87,6 +82,9 @@
             </div>
         </div>
     </nav>
+    {{-- ///// --}}
+    @stack('script')
+    {{-- ////// --}}
 </head>
 
 

@@ -2,14 +2,8 @@
 @section('titel', 'HOME')
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            Header
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">welcome</h5>
-            <p class="card-text">Content</p>
-        </div>
+    <div class="d-flex justify-content-center mt-2">
+        <img src="img/logo_aypao.jpg" class="img-fluid">
     </div>
 
 @endsection

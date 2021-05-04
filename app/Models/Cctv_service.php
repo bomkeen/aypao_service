@@ -27,7 +27,11 @@ class Cctv_service extends Model
         'out_person_doc',
         'out_person_etc',
         'aypao_person_doc',
-        'aypao_person_etc'
-
+        'aypao_person_etc',
+        'techno_event_type',
+        'techno_event_cctv_num',
+        'techno_event_info',
+        'techno_event_etc',
+        'techno_event_cctv_time'
     ];
 }
