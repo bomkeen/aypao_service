@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="card ">
-            <div class="card-header Secondary">
+            <div class="card-header bg-aypao-header">
                 <h5>บันทึกการขอดูข้อมูล CCTV</h5>
             </div>
             <div class="card-body">
@@ -22,8 +22,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <table class="table table-dark">
-                        <thead>
+                    <table class="table ">
+                        <thead class="bg-aypao-header-sub">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">First</th>
@@ -47,11 +47,13 @@
                                     <td>{{ $row->cctv_event_info }}</td>
                                     <td>
                                         <a href="{{ route('cctv_edit', ['id' => $row->id]) }}"
-                                            class="btn btn-primary">แก้ไขข้อมูล</a>
+                                            class="btn btn-light">แก้ไขข้อมูล</a>
                                     </td>
 
                                 </tr>
-
+                                @php
+                                    $i++;
+                                @endphp
 
                             @endforeach
                         </tbody>

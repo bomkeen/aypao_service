@@ -283,6 +283,9 @@
                                                     <div class="col-8">
                                                         <div class="row">
                                                             <div class="col-12">
+                                                                <label class="form-check-label" for="techno_event_info">
+                                                                    รายละเอียด
+                                                                </label>
                                                                 <input class="form-control" type="text"
                                                                     name="techno_event_info" id="techno_event_info"
                                                                     placeholder="รายละเอียด...">
@@ -293,12 +296,20 @@
                                                         <div id="got" class=" subtype">
                                                             <div class="row">
                                                                 <div class="col-6">
+                                                                    <label class="form-check-label"
+                                                                        for="techno_event_cctv_num">
+                                                                        Cam No.
+                                                                    </label>
                                                                     <input class="form-control" type="text"
                                                                         name="techno_event_cctv_num"
                                                                         id="techno_event_cctv_num"
                                                                         placeholder="กล้องหมายเลข...">
                                                                 </div>
                                                                 <div class="col-6">
+                                                                    <label class="form-check-label"
+                                                                        for="techno_event_cctv_time">
+                                                                        เวลาโดยประมาณ
+                                                                    </label>
                                                                     <input class="form-control" type="text"
                                                                         name="techno_event_cctv_time"
                                                                         id="techno_event_cctv_time"
@@ -312,6 +323,9 @@
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-6">
+                                                        <label class="form-check-label" for="techno_event_etc">
+                                                            รายละเอียดอื่นๆ
+                                                        </label>
                                                         <input class="form-control" type="text" name="techno_event_etc"
                                                             id="techno_event_etc" placeholder="อื่น...">
                                                     </div>

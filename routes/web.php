@@ -23,8 +23,9 @@ Route::get('/', function () {
 Route::get('/cctv', [CctvController::class, 'index'])->name('cctv');
 Route::get('/cctv/add', [CctvController::class, 'add'])->name('cctv_add');
 Route::get('/cctv/edit/{id}', [CctvController::class, 'edit'])->name('cctv_edit');
+Route::post('/cctv/update/{id}', [CctvController::class, 'update'])->name('cctv_update');
 Route::post('/cctv/insert', [CctvController::class, 'insert'])->name('cctv_insert');
-Route::post('/cctv/fetch', [CctvController::class, 'fetch'])->name('dropdown_fetch');
+
 // end cctv route
 
 //user route

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', 'CCTV Edit')
 @section('content')
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb py-2 border-bottom">
             <li class="breadcrumb-item"><a href="{{ route('cctv') }}">Cctv</a></li>
@@ -13,7 +14,7 @@
             <div class="card-header bg-aypao-header text-white ">
                 แก้ไขข้อมูล
             </div>
-            <form action="{{ route('cctv_insert') }}" method="post">
+            <form action="{{ route('cctv_update', ['id' => $cctv->id]) }}" method="post">
                 @csrf
 
                 <div class="card-body">
@@ -304,6 +305,9 @@
                                                     <div class="col-8">
                                                         <div class="row">
                                                             <div class="col-12">
+                                                                <label class="form-check-label" for="techno_event_info">
+                                                                    รายละเอียด
+                                                                </label>
                                                                 <input class="form-control" type="text"
                                                                     name="techno_event_info" id="techno_event_info"
                                                                     placeholder="รายละเอียด..."
@@ -315,6 +319,10 @@
                                                         <div id="got" class=" subtype">
                                                             <div class="row">
                                                                 <div class="col-6">
+                                                                    <label class="form-check-label"
+                                                                        for="techno_event_cctv_num">
+                                                                        Cam No.
+                                                                    </label>
                                                                     <input class="form-control" type="text"
                                                                         name="techno_event_cctv_num"
                                                                         id="techno_event_cctv_num"
@@ -322,6 +330,10 @@
                                                                         value="{{ $cctv->techno_event_cctv_num }}">
                                                                 </div>
                                                                 <div class="col-6">
+                                                                    <label class="form-check-label"
+                                                                        for="techno_event_cctv_time">
+                                                                        เวลาโดยประมาณ
+                                                                    </label>
                                                                     <input class="form-control" type="text"
                                                                         name="techno_event_cctv_time"
                                                                         id="techno_event_cctv_time"
@@ -336,6 +348,9 @@
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-6">
+                                                        <label class="form-check-label" for="techno_event_etc">
+                                                            รายละเอียดอื่นๆ
+                                                        </label>
                                                         <input class="form-control" type="text" name="techno_event_etc"
                                                             id="techno_event_etc" placeholder="อื่น..."
                                                             value="{{ $cctv->techno_event_etc }}">
@@ -413,6 +428,7 @@
                 var person_type1 = document.getElementById("person_type1");
                 var techno_event_type1 = document.getElementById("techno_event_type1");
                 var techno_event_type2 = document.getElementById("techno_event_type2");
+
                 if (service_type2.checked == true) {
                     $("#sub_type_list").show();
                 }
@@ -430,7 +446,7 @@
                     // $("#out_person").hide();
                     $("#aypao_person").show();
                 }
-                if (techno_event_type1 == true) {
+                if (techno_event_type1.checked == true) {
                     $("#got").show();
                 }
                 // if (techno_event_type2 == true) {
@@ -472,4 +488,5 @@
             });
 
         </script>
-    @endsection
+    @endpush
+@endsection

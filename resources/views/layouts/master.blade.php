@@ -40,7 +40,7 @@
         }
 
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-aypao text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-aypao text-white ">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">AYPAO-SERVICE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -89,7 +89,6 @@
 
 
 <body>
-
     <main>
         <br>
         <div class="container">
