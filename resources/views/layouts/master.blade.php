@@ -40,6 +40,8 @@
         }
 
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <nav class="navbar navbar-expand-lg navbar-dark bg-aypao text-white ">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">AYPAO-SERVICE</a>
@@ -59,9 +61,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">CCTV</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Compuser Asset</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         @auth
 

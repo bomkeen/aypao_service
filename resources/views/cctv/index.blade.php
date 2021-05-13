@@ -2,13 +2,12 @@
 @section('title', 'CCTV')
 @section('content')
 
-
-    <nav aria-label="breadcrumb">
+    {{-- <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('cctv') }}">Cctv</a></li>
 
         </ol>
-    </nav>
+    </nav> --}}
 
     <div class="container">
         <div class="card ">
@@ -18,7 +17,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="{{ route('cctv_add') }}" class="btn btn-outline-secondary">เพิ่มข้อมูล</a>
+                        <a href="{{ route('cctv_add') }}" class="btn btn-secondary bg-aypao">เพิ่มข้อมูล</a>
                     </div>
                 </div>
                 <div class="row">
@@ -28,8 +27,9 @@
                                 <th scope="col">#</th>
                                 <th scope="col">First</th>
                                 <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">cctv_event_info</th>
+                                <th scope="col">รายละเอียด</th>
+                                <th scope="col">แก้ไขข้อมูล</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +46,14 @@
 
                                     <td>{{ $row->cctv_event_info }}</td>
                                     <td>
+                                        <a href="{{ route('cctv_detail', ['id' => $row->id]) }}"
+                                            class="btn btn-outline-primary"><span class="fas fa-plus-circle"></span>
+                                            รายละเอียด</a>
+                                    </td>
+                                    <td>
                                         <a href="{{ route('cctv_edit', ['id' => $row->id]) }}"
-                                            class="btn btn-light">แก้ไขข้อมูล</a>
+                                            class="btn btn-outline-success"><span class="fas fa-edit"></span>
+                                            แก้ไขข้อมูล</a>
                                     </td>
 
                                 </tr>

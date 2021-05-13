@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cctv_service;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
@@ -11,7 +12,7 @@ class CctvController extends Controller
     public function index()
     {
         $cctv = Cctv_service::all();
-        $cctv = Cctv_service::paginate(3);
+        $cctv = Cctv_service::paginate(10);
         Paginator::useBootstrap();
         return view('cctv.index', compact('cctv'));
     }
@@ -20,6 +21,17 @@ class CctvController extends Controller
 
         return view('cctv.add');
     }
+    public function detail($id)
+    {
+        $cctv = Cctv_service::find($id);
+        $service_subtype_id[] = explode(",", $cctv->service_subtype_id);
+        $service_subtype = DB::table('cctv_service_subtype')
+            ->whereIn('service_subtype_id', $service_subtype_id[0])
+            ->get();
+        // $service_subtype_id[] = explode(",", $service_subtype);
+        return view('cctv.detail', compact('cctv', 'service_subtype', 'service_subtype_id'));
+    }
+
     public function edit($id)
     {
         $cctv = Cctv_service::find($id);
