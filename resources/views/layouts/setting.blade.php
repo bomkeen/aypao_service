@@ -18,7 +18,7 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <style>
         .bg-aypao {
-            background-color: #b700b7;
+            background-color: #000000;
             border-color: #ff0080;
 
         }
@@ -44,7 +44,7 @@
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <nav class="navbar navbar-expand-lg navbar-dark bg-aypao text-white ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('home') }}">AYPAO-SERVICE</a>
+            <a class="navbar-brand" href="{{ route('home') }}">AYPAO-SERVICE-Setting</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -59,12 +59,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">CCTV</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">บันทึกการขอใช้
-                            CCTV</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('cctv_ma') }}">บันทึกข้อมูล Cctv
-                            ขัดข้อง</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('cctv') }}">CCTV</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Compuser Asset</a>

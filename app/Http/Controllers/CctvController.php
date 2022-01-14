@@ -21,6 +21,11 @@ class CctvController extends Controller
 
         return view('cctv.add');
     }
+    public function pdf()
+    {
+
+        return view('cctv.pdf');
+    }
     public function detail($id)
     {
         $cctv = Cctv_service::find($id);

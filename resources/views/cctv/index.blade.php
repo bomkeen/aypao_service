@@ -28,6 +28,7 @@
                                 <th scope="col">First</th>
                                 <th scope="col">Last</th>
                                 <th scope="col">cctv_event_info</th>
+                                <th scope="col">upload</th>
                                 <th scope="col">รายละเอียด</th>
                                 <th scope="col">แก้ไขข้อมูล</th>
                             </tr>
@@ -45,6 +46,11 @@
                                     <td>{{ $row->cus_lname }}</td>
 
                                     <td>{{ $row->cctv_event_info }}</td>
+                                    <td>
+                                        <a href="{{ route('cctv_pdf') }}" class="btn btn-outline-primary"><span
+                                                class="fas fa-plus-circle"></span>
+                                            pdf</a>
+                                    </td>
                                     <td>
                                         <a href="{{ route('cctv_detail', ['id' => $row->id]) }}"
                                             class="btn btn-outline-primary"><span class="fas fa-plus-circle"></span>
